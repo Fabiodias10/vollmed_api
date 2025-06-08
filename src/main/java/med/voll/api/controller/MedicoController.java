@@ -30,9 +30,9 @@ public class MedicoController {
     @GetMapping
 //    poderia receber List<Medico> mas o DTO precisa tratar pra retornar soemnte alguns coampos
 
-    public Page<DadosListagemMedicos> listar(@PageableDefault(size=10, sort={"nome"})Pageable paginacao) {
+    public Page<DadosListagemMedicos> listar(@PageableDefault(size=10, sort={"id"})Pageable paginacao) {
 
-        return repository.findAll(paginacao).map(DadosListagemMedicos::new);
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemMedicos::new);
     }
 
     @PutMapping
@@ -46,7 +46,8 @@ public class MedicoController {
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Long id){
-        repository.deleteAllById(Collections.singleton(id));
+        var medico = repository.getReferenceById(id);
+        medico.excluir();
     }
 
 }
