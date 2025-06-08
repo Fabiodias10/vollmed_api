@@ -65,15 +65,16 @@ Projeto de uma API RESTful feita em Java com Spring Boot para **cadastro, listag
     "complemento": "Sala 3"
   }
 }
+```
 🔹 GET /pacientes?page=0&size=10
-
+```json
   {
     "id": 1,
     "nome": "Carlos da Silva",
     "email": "carlos@email.com",
     "cpf": "12345678900"
   }
-
+```
 
 📌 Observações
 O projeto usa MySQL, mas pode ser adaptado facilmente para PostgreSQL ou H2.
