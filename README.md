@@ -44,8 +44,11 @@ Projeto de uma API RESTful feita em Java com Spring Boot para **cadastro, listag
 - spring.jpa.hibernate.ddl-auto=update
 - spring.jpa.show-sql=true
 
-- 🔄 Exemplo de Requisições
-🔸 POST /medicos
+## 🔄 Exemplo de Requisições
+
+### 🔸 POST `/medicos`
+
+```json
 {
   "nome": "Dra. Ana",
   "email": "ana@clinica.com",
@@ -61,17 +64,16 @@ Projeto de uma API RESTful feita em Java com Spring Boot para **cadastro, listag
     "numero": "1000",
     "complemento": "Sala 3"
   }
-
 }
 🔹 GET /pacientes?page=0&size=10
-[
+
   {
     "id": 1,
     "nome": "Carlos da Silva",
     "email": "carlos@email.com",
     "cpf": "12345678900"
   }
-]
+
 
 📌 Observações
 O projeto usa MySQL, mas pode ser adaptado facilmente para PostgreSQL ou H2.
