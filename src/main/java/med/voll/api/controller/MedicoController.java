@@ -7,6 +7,7 @@ import med.voll.api.medico.DadosListagemMedicos;
 import med.voll.api.medico.Medico;
 import med.voll.api.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +32,7 @@ public class MedicoController {
     @GetMapping
 //    poderia receber List<Medico> mas o DTO precisa tratar pra retornar soemnte alguns coampos
 
-    public Page<DadosListagemMedicos> listar (Pageable paginacao){
+    public Page<DadosListagemMedicos> listar(@PageableDefault(size=10, sort={"nome"})Pageable paginacao) {
 
         return repository.findAll(paginacao).map(DadosListagemMedicos::new);
     }
