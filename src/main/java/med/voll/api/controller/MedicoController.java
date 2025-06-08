@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Collections;
-import java.util.List;
-
 @RestController
 @RequestMapping("medicos")
 public class MedicoController {
@@ -45,9 +42,9 @@ public class MedicoController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void excluir(@PathVariable Long id){
+    public void inativar(@PathVariable Long id){
         var medico = repository.getReferenceById(id);
-        medico.excluir();
+        medico.inativar();
     }
 
 }
