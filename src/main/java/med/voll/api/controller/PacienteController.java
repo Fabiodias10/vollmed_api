@@ -27,9 +27,11 @@ public class PacienteController {
 
     @GetMapping
     public Page<DadosListagemPaciente> listar(@PageableDefault(page = 0, size = 10, sort = {"nome"}) Pageable paginacao) {
-        return repository.findAllAtivoTrue((org.springframework.data.domain.Pageable) paginacao).map(DadosListagemPaciente::new);
+        return repository.findAllByAtivoTrue((org.springframework.data.domain.Pageable) paginacao).map(DadosListagemPaciente::new);
     }
 
+    @PutMapping
+    @Transactional
     public void atualizar(@RequestBody @Valid DadosAtualizacaoPacientes dados) {
 
         var paciente = repository.getReferenceById(dados.id());
@@ -39,7 +41,7 @@ public class PacienteController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void remover(@PathVariable Long id){
+    public void remover(@PathVariable Long id) {
         var paciente = repository.getReferenceById(id);
         paciente.inativar();
     }

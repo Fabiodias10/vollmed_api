@@ -29,7 +29,7 @@ public class Paciente {
     private boolean ativo;
 
     public Paciente(DadosCadastroPaciente dados) {
-        this.ativo=true;
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.cpf = dados.cpf();
@@ -50,7 +50,7 @@ public class Paciente {
 
     }
 
-    public void inativar(){
+    public void inativar() {
 
         this.ativo = false;
 

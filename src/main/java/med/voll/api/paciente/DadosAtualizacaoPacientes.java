@@ -19,5 +19,4 @@ public record DadosAtualizacaoPacientes(
 ) {
 
 
-
 }
